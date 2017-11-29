@@ -2,38 +2,41 @@ from sys import exit
 
 items = ['1. matchbook', '2. compass', '3. rope', '4. steel-platformed-boots']
 
-print "This is a text game. You play by entering the numbers corresponding to the move you want to make. If you ever wish to do nothing, simply enter \'0\'. Good luck!"
-def dark_room():
-    print "You enter a dark room with two doors. Do you go through door #1 or door #2?"
+print "\n\nThis is a text game. You play by entering the numbers corresponding to the move you want to make. If you ever wish to do nothing, simply enter \'0\'. Good luck!\n\n"
+
+#    print "You enter a dark room with two doors. Do you go through door #1 or door #2?"
+
+
+    #while True:
+        #door = raw_input("> ")
+
+        #if door == "1":
+def startingpoint():
+    print "\tThere's a giant bear wearing a key around his neck, eating a cheese cake. What do you do?"
+    print "\n1. Take the cake."
+    print "2. Pet the bear."
     stickybelly = False
     slobber_cover = False
     have_key = False
 
     while True:
-        door = raw_input("> ")
+        bear = raw_input("> ")
 
-        if door == "1":
-            print "There's a giant bear wearing a key around his neck, eating a cheese cake. What do you do?"
-            print "1. Take the cake."
-            print "2. Pet the bear."
+        if bear == "1":
+            take_cake()
 
-            bear = raw_input("> ")
+        elif bear == "2":
+            pet_the_bear()
 
-            if bear == "1":
-                take_cake()
-
-            elif bear == "2":
-                pet_the_bear()
-
-        elif door == "2":
-            print "I'm sorry, I haven't built anything to go behind that door yet."
+    #    elif door == "2":
+            #print "I'm sorry, I haven't built anything to go behind that door yet."
 
 
 def take_cake():
+    print "\nYou chose to take the cake."
     print "\nThe bear licks your face. You are covered in bear slobber. Now what?"
     print "\n1. Find a towel and whipe the slobber off."
     print "2. Eat the cake."
-    print "3. Go back through the door into the dark room."
     slobber_cover = True
 
     while True:
@@ -45,8 +48,6 @@ def take_cake():
         elif choice3a == "2":
             eat_the_cake()
 
-        elif choice3a == "3":
-            print "Goodbye!"
 
 def clean_slobber_off():
     print "\nYou find a white towel, whipe the slobber off with it, and once the towel",
@@ -61,7 +62,6 @@ def clean_sticky_belly():
 def wipe_slobber_off():
     print "\n1. Look up"
     print "\n2. Look down"
-    print "\n3. Put the towel down and leave."
 
     towel = raw_input("> ")
 
@@ -71,13 +71,8 @@ def wipe_slobber_off():
     elif towel == "2":
         look_down()
 
-    elif towel == "3":
-        print "Fine, I didn't want to play anyway."
-        exit(0)
-
-
 def look_up():
-    print "\nYou see a ladder hanging down from the roof of the cave. You might be able",
+    print "\nWhen you look up, you see a ladder hanging down from the roof of the cave. You might be able",
     print "to reach it if you jump. What do you do?"
     print "\n1. Jump and climb"
     print "2. Eat the cake"
@@ -95,7 +90,7 @@ def look_up():
         pet_the_bear()
 
 def look_up_after_down():
-    print "\nYou see a ladder hanging down from the roof of the cave. You might be able",
+    print "\nWhen you look up, you see a ladder hanging down from the roof of the cave. You might be able",
     print "to reach it if you jump. What do you do?"
     print "\n1. Jump and climb"
     print "2. Ask bear for key"
@@ -122,7 +117,7 @@ def jump_and_climb():
 
     elif direction == "2":
         print "\nYou go west until you find yourself at the beach.\n Yay beach!\n\n\n"
-        exit(0)
+        endchoice()
     elif direction == "3":
         southbound()
 
@@ -223,7 +218,7 @@ def marco_response():
             print "\nYou turn around..."
             print "\nand..."
             print "\n it's the Easter Bunny! You eat waffles and live happily ever after."
-            exit(0)
+            endchoice()
         elif marco == "2":
             print "\nThe voice starts giggling and the giggles fade away."
             print "\nThe fog grows denser and denser, but in the distance you see a glow."
@@ -234,7 +229,7 @@ def marco_response():
                 print "\nYou arrive at the source of the glow: a giant lava lamp!"
             elif glow == "0":
                 print "\nYou spend the rest of the day meditating in the fog."
-                exit(0)
+                endchoice()
         elif marco == "1":
             print "Try \"Yes\" or \"No.\""
 
@@ -248,7 +243,7 @@ def southbound():
     if river == "1":
         print "You get swept away by the current, go down a small waterfall, and find yourself in a lagoon with mermaids."
         print "\nYou spend the day with them swimming, singing, and braiding each other's hair.\n\n\n"
-        exit(0)
+        endchoice()
 
     elif river == "2":
         cross_bridge()
@@ -267,7 +262,7 @@ def cross_bridge():
 
     elif net == "2":
         print "You land on a horse, who carries you off into the sunset. \n\n\n"
-        exit(0)
+        endchoice()
 def climb_out():
     print "You can climb out onto a tree or jump onto the ground. Tree or ground?"
 
@@ -280,16 +275,16 @@ def climb_out():
 
         if treehouse == "0":
             print "You are now Tarzan.\nGoodbye!\n\n\n"
-            exit(0)
+            endchoice()
         elif treehouse == "1":
             print "There are a bunch of monkeys having a tea party. You are the guest of honor!\n\n\n"
-            exit(0)
+            endchoice()
         elif treehouse == "2":
             print "You land on a horse, who carries you off into the sunset. \n\n\n"
-            exit(0)
+            endchoice()
         elif climb == "6":
             print "You land on a horse, who carries you off into the sunset. \n\n\n"
-            exit(0)
+            endchoice()
 def eastbound():
     print "You head east until you see, in the distance, a stand-alone building in the middle of a field.",
     print "As you get closer, you see it is a biker bar: a shack with a wrap-around porch, on which people are",
@@ -380,10 +375,10 @@ def eat_the_cake():
 
     elif marble == "2":
         print "Turns out the cake had sedatives in it. Sweet dreams!"
-        exit(0)
+        endchoice()
     else:
         print "You get a call from your mom and wants you to come home. Goodye!"
-        exit(0)
+        endchoice()
 def follow_the_marble():
     print "\n The marble leads you to a narrow passageway in the wall,",
     print " just big enough to crawl through. You hear music coming through the passageway.The passageway is blocked by a metal grate",
@@ -443,10 +438,10 @@ def crawl_through():
 
         print "\nthe Burghain."
         print "You party all night and day."
-        exit(0)
+        endchoice()
     else:
         print "It turns out the bear has more marbles, and you guys play several games before you leave and go home."
-        exit(0)
+        endchoice()
 
 def look_down():
     print "There is a trap door beneath your feet."
@@ -1375,4 +1370,17 @@ def escape_from_bear():
         jump_and_climb()
 
 
-dark_room()
+startingpoint()
+
+def endchoice():
+    print "Enter \"0\" to exit or \"1\" to start over."
+
+    startoverorexit = raw_input("> ")
+
+    if startoverorexit == "0":
+        print "\n\nGOODBYE\n\n"
+        exit(0)
+
+    elif startoverorexit =="1":
+        print "\n\nMULLIGAN!\n\n"
+        startingpoint()
